@@ -54,26 +54,6 @@ class Backlog extends Component {
         console.log(newProjectTask)
         console.log( this.props.history)
         this.props.drapUpdate(item.projectIdentifier, newProjectTask, this.props.history);
-        // if(source.droppableId === "TO_DO"){
-        //     console.log("in todo")
-        //     console.log(todoItems[source.index].props.task)
-        // } else if(source.droppableId === "IN_PROGRESS"){
-        //     console.log("in progress")
-        //     console.log(inProgressitems[source.index].props.task)
-        //     let item = {...inProgressitems[source.index].props.task};
-        //     const newProjectTask = {
-        //         "id": item.id,
-        //         "summary": item.summary,
-        //         "acceptanceCriteria": item.acceptanceCriteria,
-        //         "status": destination.droppableId,
-        //         "priority": item.priority,
-        //         "dueDate": item.dueDate,
-        //     }
-        //     this.props.addProjectTask(item.projectIdentifier, newProjectTask, this.props.history);
-        // } else if(source.droppableId === "DONE"){
-        //     console.log("in done")
-        //     console.log(doneItems[source.index].props.task)
-        // }
     }
 
     let todoItems = [];
