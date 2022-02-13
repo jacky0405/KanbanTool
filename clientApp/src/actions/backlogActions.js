@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ERRORS, GET_BACKLOG, GET_PROJECT_TASK, DELETE_PROJECT_TASK} from '../actions/types';
+import { GET_ERRORS, GET_BACKLOG, GET_PROJECT_TASK, DELETE_PROJECT_TASK, DRAG_UPDATE_TASK} from '../actions/types';
 
 export const addProjectTask = (backlog_id, project_task,history) => async dispatch => {
     try {
@@ -56,4 +56,12 @@ export const deleteProjectTask = (backlog_id, sequence) => async dispatch => {
             "payload": sequence
         })
     }
+}
+
+export const drapUpdate = (backlog_id, project_task,history) => async dispatch => {
+        const res = await axios.post(`/api/backlog/${backlog_id}`, project_task);
+        dispatch({
+            "type": DRAG_UPDATE_TASK,
+            "payload": res.data
+        })
 }

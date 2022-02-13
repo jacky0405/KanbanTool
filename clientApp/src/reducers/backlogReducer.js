@@ -1,4 +1,4 @@
-import {GET_BACKLOG, GET_PROJECT_TASK, DELETE_PROJECT_TASK} from '../actions/types';
+import {GET_BACKLOG, GET_PROJECT_TASK, DELETE_PROJECT_TASK, DRAG_UPDATE_TASK} from '../actions/types';
 
 const initialState = {
     project_tasks : [],
@@ -22,6 +22,13 @@ export default function backlogReducer(state=initialState, action) {
                 ...state,
                 project_tasks: state.project_tasks.filter(task => task.projectSequence !== action.payload)
             }
+        case DRAG_UPDATE_TASK:
+            const index = state.project_tasks.findIndex(task => task.id === action.payload.id)
+            state.project_tasks[index].status = action.payload.status
+            return {
+                ...state,
+                project_tasks: [...state.project_tasks]
+            };
         default:
             return state;
     }
